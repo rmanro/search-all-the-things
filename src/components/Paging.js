@@ -18,10 +18,8 @@ export default class Paging extends Component {
       <section>
       <div>
         <span>Page {page} of {totalPages}</span>
-        &nbsp;&nbsp;
         <button onClick={() => this.handlePage(-1)} disabled={page === 1}>&lt; Prev</button>
         <button onClick={() => this.handlePage(1)} disabled={page === totalPages}>Next &gt;</button>
-        &nbsp;&nbsp;
         <span>{totalItems} Total Books</span>
       </div>
       <div>

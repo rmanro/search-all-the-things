@@ -1,26 +1,28 @@
+/* eslint-disable */
 header {
   background: lightsteelblue;
   padding: 10px;
+}
 
-  .header-container {
+.header-container {
     display: flex;
     align-items: center;
-  
-    > h1 {
-      font-size: 14pt;
-    }
-  }
+}
 
-  .search-container {
+.header-container h1 {
+  font-size: 14pt;
+}
+
+.search-container {
     padding: 5px 0;
-  }
 }
 
 main {
   position: relative;
   padding: 10px;
+}
 
-  .notifications {
+.notifications {
     position: absolute;
     top: 0;
     left: 5px;
@@ -28,9 +30,9 @@ main {
     opacity: .7;
     background: black;
     color: white;
-    
-    * {
-      margin: 5px 10px;
-    }
-  }
 }
+
+main * {
+    margin: 5px 10px;
+}
+  
