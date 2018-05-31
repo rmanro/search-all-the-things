@@ -33,6 +33,7 @@ export default class App extends Component {
   };
 
   handleSearch = ({ search }) => {
+    this.setState({ page: 1 });
     this.setState({ topic: search }, this.searchBooks);
   };
 
