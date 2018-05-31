@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { search } from '../services/booksApi';
 import Search from './Search';
 import Books from './Books';
+import Paging from './Paging';
 
 export default class App extends Component {
 
@@ -22,7 +23,8 @@ export default class App extends Component {
 
     search({ topic })
       .then(({ totalItems, items}) => {
-        this.setState({ totalItems, items, error: null });
+        const books = items;
+        this.setState({ totalItems, books, error: null });
       }, error => {
         this.setState({ error });
       })
@@ -33,8 +35,12 @@ export default class App extends Component {
     this.setState({ topic: search }, this.searchBooks);
   };
 
+  handlePage = ({ page }) => {
+    this.setState({ page }, this.searchBooks);
+  }
+
   render() {
-    const { books, loading, error, totalItems } = this.state;
+    const { books, loading, error, totalItems, page, perPage } = this.state;
 
     return (
       <div>
@@ -52,6 +58,11 @@ export default class App extends Component {
             {error && <div>Error: {error}</div>}
           </section>
           <section>
+            <Paging
+              totalItems={totalItems}
+              page={page}
+              perPage={perPage}
+              onPage={this.handlePage}/>
             <Books books={books}/>
           </section>
         </main>
