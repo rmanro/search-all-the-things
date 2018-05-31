@@ -1,6 +1,3 @@
-// const API_KEY = 'AIzaSyCqCifDvOn9VhyZ-5MIiJ7XB-bVWciuZBM'
-// https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes
-
 const BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q='
 const maxResults = 10;
 
