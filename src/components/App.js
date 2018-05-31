@@ -43,7 +43,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { books, loading, error, totalItems, page, perPage } = this.state;
+    const { books, loading, error, totalItems, page, perPage, topic } = this.state;
 
     return (
       <div>
@@ -62,6 +62,7 @@ export default class App extends Component {
           </section>
           <section>
             <Paging
+              topic={topic}
               totalItems={totalItems}
               page={page}
               perPage={perPage}

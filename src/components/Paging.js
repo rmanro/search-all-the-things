@@ -8,13 +8,14 @@ export default class Paging extends Component {
   }
 
   render() {
-    const { totalItems, page, perPage } = this.props;
+    const { totalItems, page, perPage, topic } = this.props;
 
     if(!totalItems) return <div>No results found!</div>;
 
     const totalPages = Math.ceil(totalItems / perPage);
 
     return (
+      <section>
       <div>
         <span>Page {page} of {totalPages}</span>
         &nbsp;
@@ -22,6 +23,10 @@ export default class Paging extends Component {
         <button onClick={() => this.handlePage(1)} disabled={page === totalPages}>Next &gt;</button>
         <span>{totalItems} Total Books</span>
       </div>
+      <div>
+        <h1>Results for "{topic}"</h1>
+      </div>
+      </section>
     );
   }
 }
