@@ -1,6 +1,5 @@
-/* eslint-disable */
 header {
-  background: lightsteelblue;
+  background: rgb(155, 204, 217);
   padding: 10px;
 }
 
@@ -15,6 +14,10 @@ header {
 
 .search-container {
     padding: 5px 0;
+}
+
+.search-container button {
+  margin: 5px;
 }
 
 main {
@@ -34,5 +37,10 @@ main {
 
 main * {
     margin: 5px 10px;
+}
+
+.author {
+  font-style: italic;
+  font-size: smaller;
 }
   

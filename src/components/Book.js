@@ -14,7 +14,7 @@ export default class Book extends Component {
 
     return (
       <li>
-        <h2>{title} {!noAuthor && <span>by {authors}</span>}</h2>
+        <h2>{title} {!noAuthor && <span className="author">by {authors}</span>}</h2>
         <p>{description}</p>
         <img src={imageUrl}/>
       </li>

@@ -40,6 +40,7 @@ export default class App extends Component {
   };
 
   handleSearch = ({ search }) => {
+    this.setState({ error: null });
     this.setState({ page: 1 });
     this.setState({ topic: search }, this.searchBooks);
   };
@@ -62,12 +63,12 @@ export default class App extends Component {
           <div className="search-container">
             <Search onSearch={this.handleSearch}/>
           </div>
-        </header>
-        <main>
           <section className="notifications">
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
           </section>
+        </header>
+        <main>
           <section>{searched &&
             <Paging
               topic={topic}
