@@ -13,15 +13,16 @@ export default class App extends Component {
     totalItems: 0,
     page: 1,
     perPage: 10,
-    books: []
+    books: [],
+    startIndex: 0
   };
 
   searchBooks = () => {
-    const { topic, page, perPage } = this.state;
+    const { topic, page, perPage, startIndex } = this.state;
 
     this.setState({ loading: true });
 
-    search({ topic })
+    search({ topic, startIndex })
       .then(({ totalItems, items}) => {
         const books = items;
         this.setState({ totalItems, books, error: null });
