@@ -14,7 +14,8 @@ export default class App extends Component {
     page: 1,
     perPage: 10,
     books: [],
-    startIndex: 0
+    startIndex: 0,
+    searched: false
   };
 
   searchBooks = () => {
@@ -26,6 +27,7 @@ export default class App extends Component {
       .then(({ totalItems, items}) => {
         const books = items;
         this.setState({ totalItems, books, error: null });
+        this.setState({ searched: true });
       }, error => {
         this.setState({ error });
       })
@@ -44,7 +46,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { books, loading, error, totalItems, page, perPage, topic } = this.state;
+    const { books, loading, error, totalItems, page, perPage, topic, searched } = this.state;
 
     return (
       <div>
@@ -61,13 +63,13 @@ export default class App extends Component {
             {loading && <div>Loading...</div>}
             {error && <div>Error: {error}</div>}
           </section>
-          <section>
+          <section>{searched &&
             <Paging
               topic={topic}
               totalItems={totalItems}
               page={page}
               perPage={perPage}
-              onPage={this.handlePage}/>
+              onPage={this.handlePage}/>}
             <Books books={books}/>
           </section>
         </main>
