@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { search } from '../services/booksApi';
 import Search from './Search';
+import Books from './Books';
 
 export default class App extends Component {
 
@@ -33,7 +34,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { books, loading, error } = this.state;
+    const { books, loading, error, totalItems } = this.state;
 
     return (
       <div>
@@ -45,6 +46,15 @@ export default class App extends Component {
             <Search onSearch={this.handleSearch}/>
           </div>
         </header>
+        <main>
+          <section className="notifications">
+            {loading && <div>Loading...</div>}
+            {error && <div>Error: {error}</div>}
+          </section>
+          <section>
+            <Books books={books}/>
+          </section>
+        </main>
       </div>
     )
   }
