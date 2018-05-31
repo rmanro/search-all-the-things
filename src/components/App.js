@@ -25,9 +25,13 @@ export default class App extends Component {
 
     search({ topic, startIndex })
       .then(({ totalItems, items}) => {
-        const books = items;
-        this.setState({ totalItems, books, error: null });
-        this.setState({ searched: true });
+        if (!totalItems) {
+          this.setState({ error: 'No Results found!' });
+        } else {
+          const books = items;
+          this.setState({ totalItems, books, error: null });
+          this.setState({ searched: true });
+        }
       }, error => {
         this.setState({ error });
       })
@@ -61,7 +65,7 @@ export default class App extends Component {
         <main>
           <section className="notifications">
             {loading && <div>Loading...</div>}
-            {error && <div>Error: {error}</div>}
+            {error && <div>{error}</div>}
           </section>
           <section>{searched &&
             <Paging
