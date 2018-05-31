@@ -3,6 +3,7 @@ import { search } from '../services/booksApi';
 import Search from './Search';
 import Books from './Books';
 import Paging from './Paging';
+import '../styles/app.css';
 
 export default class App extends Component {
 
