@@ -30,8 +30,7 @@ export default class App extends Component {
           this.setState({ error: 'No Results found!' });
         } else {
           const books = items;
-          this.setState({ totalItems, books, error: null });
-          this.setState({ searched: true });
+          this.setState({ totalItems, books, error: null, searched: true });
         }
       }, error => {
         this.setState({ error });
@@ -40,9 +39,7 @@ export default class App extends Component {
   };
 
   handleSearch = ({ search }) => {
-    this.setState({ error: null });
-    this.setState({ page: 1 });
-    this.setState({ topic: search }, this.searchBooks);
+    this.setState({ topic: search, page: 1, error: null }, this.searchBooks);
   };
 
   handlePage = ({ page }) => {
