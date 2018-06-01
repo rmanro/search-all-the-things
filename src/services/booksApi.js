@@ -15,7 +15,7 @@ export function search({ topic, startIndex }) {
         booksObject.totalItems = 0;
         return booksObject;
       }
-      let books = results.items.map((book, i) => {
+      const books = results.items.map((book, i) => {
         let newBook = {};
         if (!book.volumeInfo.authors) {
           newBook.author = 'none';
