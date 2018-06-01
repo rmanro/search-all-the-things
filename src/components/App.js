@@ -25,11 +25,10 @@ export default class App extends Component {
     this.setState({ loading: true });
 
     search({ topic, startIndex })
-      .then(({ totalItems, items}) => {
+      .then(({ totalItems, books}) => {
         if (!totalItems) {
           this.setState({ error: 'No Results found!' });
         } else {
-          const books = items;
           this.setState({ totalItems, books, error: null, searched: true });
         }
       }, error => {
