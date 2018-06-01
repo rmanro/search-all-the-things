@@ -11,6 +11,10 @@ export function search({ topic, startIndex }) {
   return get(`${BASE_URL}${topic}${paging}`)
     .then((results) => {
       let booksObject = {};
+      if(results.totalItems === 0) {
+        booksObject.totalItems = 0;
+        return booksObject;
+      }
       let books = results.items.map((book, i) => {
         let newBook = {};
         if (!book.volumeInfo.authors) {
@@ -23,7 +27,6 @@ export function search({ topic, startIndex }) {
       });
       booksObject.books = books;
       booksObject.totalItems = results.totalItems;
-      console.log(booksObject);
       return booksObject;
     });
 }
