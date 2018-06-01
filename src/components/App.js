@@ -46,8 +46,9 @@ export default class App extends Component {
   };
 
   handlePage = ({ page }) => {
+    const increment = 10;
     const { startIndex } = this.state;
-    page < this.state.page ? this.setState({ startIndex: startIndex - 10 }) : this.setState({ startIndex: startIndex + 10 });
+    page < this.state.page ? this.setState({ startIndex: startIndex - increment }) : this.setState({ startIndex: startIndex + increment });
     this.setState({ page }, this.searchBooks);
   }
 
