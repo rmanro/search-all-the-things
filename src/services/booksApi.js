@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q='
+const BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=';
 const maxResults = 10;
 
 const throwJson = json => { throw json; };
@@ -15,12 +15,12 @@ export function search({ topic, startIndex }) {
         booksObject.totalItems = 0;
         return booksObject;
       }
-      const books = results.items.map((book, i) => {
+      const books = results.items.map((book) => {
         let newBook = {};
-        if (!book.volumeInfo.authors) {
+        if(!book.volumeInfo.authors) {
           newBook.author = 'none';
-        } else if (book.volumeInfo.authors[1]) newBook.author = book.volumeInfo.authors[0]; else newBook.author = book.volumeInfo.authors; 
-        if (book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail) newBook.imageUrl = book.volumeInfo.imageLinks.smallThumbnail;
+        } else if(book.volumeInfo.authors[1]) newBook.author = book.volumeInfo.authors[0]; else newBook.author = book.volumeInfo.authors; 
+        if(book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail) newBook.imageUrl = book.volumeInfo.imageLinks.smallThumbnail;
         newBook.title = book.volumeInfo.title;
         newBook.description = book.volumeInfo.description;
         return newBook;

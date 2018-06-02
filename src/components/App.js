@@ -20,13 +20,13 @@ export default class App extends Component {
   };
 
   searchBooks = () => {
-    const { topic, page, perPage, startIndex } = this.state;
+    const { topic, startIndex } = this.state;
 
     this.setState({ loading: true });
 
     search({ topic, startIndex })
-      .then(({ totalItems, books}) => {
-        if (!totalItems) {
+      .then(({ totalItems, books }) => {
+        if(!totalItems) {
           this.setState({ error: 'No Results found!' });
         } else {
           this.setState({ totalItems, books, error: null, searched: true });
@@ -46,7 +46,7 @@ export default class App extends Component {
     const { startIndex } = this.state;
     page < this.state.page ? this.setState({ startIndex: startIndex - increment }) : this.setState({ startIndex: startIndex + increment });
     this.setState({ page }, this.searchBooks);
-  }
+  };
 
   render() {
     const { books, loading, error, totalItems, page, perPage, topic, searched } = this.state;
@@ -73,10 +73,10 @@ export default class App extends Component {
               page={page}
               perPage={perPage}
               onPage={this.handlePage}/>}
-            <Books books={books}/>
+          <Books books={books}/>
           </section>
         </main>
       </div>
-    )
+    );
   }
 }

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Paging extends Component {
 
   handlePage(increment) {
-    const { page, onPage, startIndex } = this.props;
+    const { page, onPage } = this.props;
     onPage({ page: page + increment });
   }
 
@@ -16,15 +16,15 @@ export default class Paging extends Component {
 
     return (
       <section>
-      <div>
-        <span>Page {page} of {totalPages}</span>
-        <button onClick={() => this.handlePage(-1)} disabled={page === 1}>&lt; Prev</button>
-        <button onClick={() => this.handlePage(1)} disabled={page === totalPages}>Next &gt;</button>
-        <span>{totalItems} Total Books</span>
-      </div>
-      <div>
-        <h1>Results for "{topic}"</h1>
-      </div>
+        <div>
+          <span>Page {page} of {totalPages}</span>
+          <button onClick={() => this.handlePage(-1)} disabled={page === 1}>&lt; Prev</button>
+          <button onClick={() => this.handlePage(1)} disabled={page === totalPages}>Next &gt;</button>
+          <span>{totalItems} Total Books</span>
+        </div>
+        <div>
+          <h1>Results for &quot;{topic}&quot;</h1>
+        </div>
       </section>
     );
   }
