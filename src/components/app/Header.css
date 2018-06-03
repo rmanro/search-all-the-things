@@ -1,0 +1,15 @@
+:local(.header) {
+  display: flex;
+  align-items: center;
+  background: rgb(155, 204, 217);
+  padding: 10px;
+
+  h1 {
+    font-size: 14pt;
+  }
+
+}
+ 
+        /* .header-container {
+            margin-left: 40px;
+        } */
