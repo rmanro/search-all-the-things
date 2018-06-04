@@ -5,6 +5,7 @@ import Home from './Home';
 import About from './About';
 import Search from '../search/Search';
 import BookDetail from '../books/BookDetail';
+import styles from '../../styles/main.css';
 
 export default class App extends Component {
 
@@ -14,7 +15,7 @@ export default class App extends Component {
       <Router>
         <div>
           <Header/>
-          <main>
+          <main className={styles.main}>
             {<Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/about" component={About}/>

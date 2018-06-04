@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.css';
+import home from './home.png';
+import about from './about.png';
 
 export default class Header extends Component {
   render() {
@@ -11,8 +13,8 @@ export default class Header extends Component {
         </section>
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
+            <li><Link to="/"><img src={home}/></Link></li>
+            <li><Link to="/about"><img src={about}/></Link></li>
             <li><Link to="/search">Search</Link></li>
           </ul>
         </nav>

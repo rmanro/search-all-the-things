@@ -1,0 +1,12 @@
+:local(.home) {
+  display: flex;
+  align-items: left;
+  background: rgb(241, 235, 227);
+  
+  img {
+    // width: 237.25px;
+    // height: 188.47px;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -8,12 +8,28 @@
     font-size: 14pt;
   }
 
+  nav {
+    margin-left: auto;
+  }
+
   ul {
     list-style-type: none;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  li {
+    display: inline-block;
+    padding-right: 5px;
   }
 
   .header-container {
-      margin-left: 15px;
+      margin-left: 22px;
+  }
+
+  img {
+    width: 10%;
+    height: 10%;
   }
 
 }
