@@ -7,7 +7,7 @@ export default class BookDetail extends Component {
 
   static propTypes = {
     gbID: PropTypes.string.isRequired,
-    history: PropTypes.object
+    history: PropTypes.object,
   };
 
   state = {
@@ -35,8 +35,7 @@ export default class BookDetail extends Component {
         <div className='container'>
           <h2>{book.title}</h2>
           <h3>{book.author}</h3>
-          <img src={book.imgUrl} alt={book.title}/>
-          <p>{book.description && <span>No Description Available</span>}</p>
+          <img src={book.imageUrl} alt={book.title}/>
         </div>
       </article>
     );

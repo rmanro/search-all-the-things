@@ -6,7 +6,9 @@ export default class Header extends Component {
   render() {
     return (
       <header className={styles.header}>
-        <h1>Book Search</h1>
+        <section className="header-container">
+          <h1>Book Search</h1>
+        </section>
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>

@@ -1,4 +1,8 @@
 :local(.search) {
   padding: 10px;
-  background: #aaa;
+  background: rgb(236, 236, 236);
+  
+  fieldset {
+    border: 0;
+  }
 }

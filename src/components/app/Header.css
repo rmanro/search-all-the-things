@@ -8,8 +8,13 @@
     font-size: 14pt;
   }
 
+  ul {
+    list-style-type: none;
+  }
+
+  .header-container {
+      margin-left: 15px;
+  }
+
 }
  
-        /* .header-container {
-            margin-left: 40px;
-        } */
