@@ -27,8 +27,8 @@ export default class BookDetail extends Component {
 
   render() {
     const { book } = this.state;
-
     if(book === null) return null;
+    const description = { __html: book.description };
 
     return (
       <article className={styles['book-detail']}>
@@ -37,7 +37,7 @@ export default class BookDetail extends Component {
           <h3>{book.author}</h3>
           <img src={book.imageUrl} alt={book.title}/>
           <p>{!book.description && <span>No Description Available</span>}</p>
-          <p>{book.description}</p>
+          <p dangerouslySetInnerHTML={description}/>
         </div>
       </article>
     );
