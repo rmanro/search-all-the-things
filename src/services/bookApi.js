@@ -29,7 +29,6 @@ export function search(term, startIndex) {
           newBook.imageUrl = book.volumeInfo.imageLinks.smallThumbnail;
         } else newBook.imageUrl = 'http://booklists.yalsa.net/content/images/placeholder.jpg';
         newBook.title = book.volumeInfo.title;
-        newBook.description = book.volumeInfo.description;
         newBook.gbID = book.id;
         return newBook;
       });
@@ -50,7 +49,7 @@ export function getBook(id) {
         newBook.imageUrl = result.volumeInfo.imageLinks.smallThumbnail;
       } else newBook.imageUrl = 'http://booklists.yalsa.net/content/images/placeholder.jpg';
       newBook.title = result.volumeInfo.title;
-      newBook.description = result.volumeInfo.description;
+      if(result.volumeInfo.description) newBook.description = result.volumeInfo.description;
       return newBook;
     });
 }

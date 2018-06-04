@@ -36,6 +36,8 @@ export default class BookDetail extends Component {
           <h2>{book.title}</h2>
           <h3>{book.author}</h3>
           <img src={book.imageUrl} alt={book.title}/>
+          <p>{!book.description && <span>No Description Available</span>}</p>
+          <p>{book.description}</p>
         </div>
       </article>
     );
