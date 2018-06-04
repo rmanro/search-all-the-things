@@ -24,7 +24,7 @@ export function search(term, startIndex) {
         let newBook = {};
         if(!book.volumeInfo.authors) {
           newBook.author = 'none';
-        } else if(book.volumeInfo.authors[1]) newBook.author = book.volumeInfo.authors[0]; else newBook.author = book.volumeInfo.authors; 
+        } else if(book.volumeInfo.authors > 1) newBook.author = book.volumeInfo.authors[0]; else newBook.author = book.volumeInfo.authors[0]; 
         if(book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail) {
           newBook.imageUrl = book.volumeInfo.imageLinks.smallThumbnail;
         } else newBook.imageUrl = 'http://booklists.yalsa.net/content/images/placeholder.jpg';
@@ -36,5 +36,21 @@ export function search(term, startIndex) {
       booksObject.books = books;
       booksObject.totalItems = results.totalItems;
       return booksObject;
+    });
+}
+
+export function getBook(id) {
+  return get(`https://www.googleapis.com/books/v1/volumes/${id}`)
+    .then((result) => {
+      let newBook = {};
+      if(!result.volumeInfo.authors) {
+        newBook.author = 'none';
+      } else if(result.volumeInfo.authors.length > 1) newBook.author = result.volumeInfo.authors[0]; else newBook.author = result.volumeInfo.authors[0]; 
+      if(result.volumeInfo.imageLinks && result.volumeInfo.imageLinks.smallThumbnail) {
+        newBook.imageUrl = result.volumeInfo.imageLinks.smallThumbnail;
+      } else newBook.imageUrl = 'http://booklists.yalsa.net/content/images/placeholder.jpg';
+      newBook.title = result.volumeInfo.title;
+      newBook.description = result.volumeInfo.description;
+      return newBook;
     });
 }

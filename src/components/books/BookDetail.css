@@ -1,0 +1,23 @@
+:local(.book-detail) {
+
+  .container {
+    width: 500px;
+    margin: auto;
+    padding: 15px;
+    background: #aaa;
+
+    img {
+      width: 175px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    &:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+}
