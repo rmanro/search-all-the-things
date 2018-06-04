@@ -33,14 +33,14 @@ export default class Search extends Component {
   UNSAFE_componentWillReceiveProps({ location }) {
     const next = getSearch(location);
     const current = getSearch(this.props.location);
-    if(current === next && !this.state.paging) return;
+    if(current === next) return;
     this.searchFromQuery(next);
   }
 
   searchFromQuery(query) {
-    const { search: searchTerm } = queryString.parse(query);
-    const { startIndex } = this.state;
-    this.setState({ searchTerm });
+    const { search: searchTerm, startIndex } = queryString.parse(query);
+    // const { startIndex } = this.state;
+    this.setState({ searchTerm, startIndex: +startIndex });
     if(!searchTerm) return;
 
     search(searchTerm, startIndex)
@@ -52,19 +52,28 @@ export default class Search extends Component {
       });
   }
 
-  handleSearch = searchTerm => {
+  makeSearch = () => {
     this.setState({ error: null });
+    const { searchTerm, startIndex } = this.state;
+
+    const query = {
+      search: searchTerm || '',
+      startIndex: startIndex || 0
+    };
 
     this.props.history.push({
-      search: searchTerm ? queryString.stringify({ search: searchTerm }) : ''
+      search: queryString.stringify(query)
     });
   };
 
+  handleSearch = searchTerm => {
+    this.setState({ error: null, searchTerm, startIndex: 0 }, this.makeSearch);
+  };
+
   handlePage = ({ page }) => {
-    const increment = 10;
-    const { startIndex } = this.state;
-    page < this.state.page ? this.setState({ startIndex: startIndex - increment }) : this.setState({ startIndex: startIndex + increment });
-    this.setState({ page, paging: true }, this.searchFromQuery(this.props.location.search));
+    const { perPage, startIndex } = this.state;
+    page < this.state.page ? this.setState({ startIndex: startIndex - perPage }) : this.setState({ startIndex: startIndex + perPage });
+    this.setState({ page }, this.makeSearch);
 
   };
 
