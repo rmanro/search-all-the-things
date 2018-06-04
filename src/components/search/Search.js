@@ -39,8 +39,9 @@ export default class Search extends Component {
 
   searchFromQuery(query) {
     const { search: searchTerm, startIndex } = queryString.parse(query);
-    // const { startIndex } = this.state;
     this.setState({ searchTerm, startIndex: +startIndex });
+    if(startIndex === 0) {this.setState({ page: 1 });}
+    else this.setState({ page: (startIndex / 10) + 1 });
     if(!searchTerm) return;
 
     search(searchTerm, startIndex)
