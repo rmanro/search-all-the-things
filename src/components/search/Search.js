@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Books from '../books/Books';
 import SearchForm from './SearchForm';
-// import Paging from './Paging';
+import Paging from './Paging';
 import { search } from '../../services/bookApi';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
@@ -22,7 +22,8 @@ export default class Search extends Component {
     totalItems: null,
     page: 1,
     perPage: 10,
-    startIndex: 0
+    startIndex: 0,
+    paging: false
   };
 
   componentDidMount() {
@@ -32,7 +33,7 @@ export default class Search extends Component {
   UNSAFE_componentWillReceiveProps({ location }) {
     const next = getSearch(location);
     const current = getSearch(this.props.location);
-    if(current === next) return;
+    if(current === next && !this.state.paging) return;
     this.searchFromQuery(next);
   }
 
@@ -59,31 +60,30 @@ export default class Search extends Component {
     });
   };
 
-  // handlePage = ({ page, searchTerm }) => {
-  //   console.log('GOT HERE');
-  //   const increment = 10;
-  //   const { startIndex } = this.state;
-  //   page < this.state.page ? this.setState({ startIndex: startIndex - increment }) : this.setState({ startIndex: startIndex + increment });
-  //   this.setState({ page, searchTerm: searchTerm, current: searchTerm }, this.handleSearch);
-  // };
+  handlePage = ({ page }) => {
+    const increment = 10;
+    const { startIndex } = this.state;
+    page < this.state.page ? this.setState({ startIndex: startIndex - increment }) : this.setState({ startIndex: startIndex + increment });
+    this.setState({ page, paging: true }, this.searchFromQuery(this.props.location.search));
 
-  // render() {
-  //   const { books, error, searchTerm, totalItems, page, perPage } = this.state;
+  };
 
   render() {
-    const { books, error, searchTerm } = this.state;
+    const { books, error, searchTerm, totalItems, page, perPage } = this.state;
 
     return (
       <div>
         <SearchForm searchTerm={searchTerm} onSearch={this.handleSearch}/>
         {error && <div>{error}</div>}
-        {/* {(!error && books) && <Paging
+        {(!error && books) && <Paging
           searchTerm={searchTerm}
           totalItems={totalItems}
           page={page}
           perPage={perPage}
-          onPage={this.handlePage}/>} */}
-        {(!error && books) && <Books books={books}/>}
+          onPage={this.handlePage}/>}
+        <section className="search-results">
+          {(!error && books) && <Books books={books}/>}
+        </section>
       </div>
     );
   }

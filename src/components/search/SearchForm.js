@@ -43,7 +43,8 @@ export default class SearchForm extends Component {
           <input value={current}
             onChange={this.handleChange}
             name="search"
-            placeholder="title or author"/>
+            placeholder="title or author"
+            required/>
           <label>
             &nbsp;<button>Search</button>
           </label>

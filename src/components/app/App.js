@@ -5,7 +5,6 @@ import Home from './Home';
 import About from './About';
 import Search from '../search/Search';
 import BookDetail from '../books/BookDetail';
-import './App.css';
 
 export default class App extends Component {
 
