@@ -25,9 +25,12 @@ export function search(term, startIndex) {
         if(!book.volumeInfo.authors) {
           newBook.author = 'none';
         } else if(book.volumeInfo.authors[1]) newBook.author = book.volumeInfo.authors[0]; else newBook.author = book.volumeInfo.authors; 
-        if(book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail) newBook.imageUrl = book.volumeInfo.imageLinks.smallThumbnail;
+        if(book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail) {
+          newBook.imageUrl = book.volumeInfo.imageLinks.smallThumbnail;
+        } else newBook.imageUrl = 'http://booklists.yalsa.net/content/images/placeholder.jpg';
         newBook.title = book.volumeInfo.title;
         newBook.description = book.volumeInfo.description;
+        newBook.gbID = book.id;
         return newBook;
       });
       booksObject.books = books;
