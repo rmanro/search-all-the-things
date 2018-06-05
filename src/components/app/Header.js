@@ -10,7 +10,7 @@ export default class Header extends Component {
     return (
       <header className={styles.header}>
         <section className="header-container">
-          <h1>Book Search</h1>
+          <h1>All The Books</h1>
         </section>
         <nav>
           <ul>
