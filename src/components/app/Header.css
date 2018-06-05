@@ -10,6 +10,7 @@
 
   nav {
     margin-left: auto;
+    margin-right: 20px;
   }
 
   ul {
@@ -20,16 +21,21 @@
 
   li {
     display: inline-block;
-    padding-right: 5px;
+    padding-right: 10px;
+    padding-left: 5px
   }
 
   .header-container {
-      margin-left: 22px;
+      margin-left: 40px;
   }
 
   img {
-    width: 10%;
-    height: 10%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .home-icon {
+    margin-right: 5px;
   }
 
 }
