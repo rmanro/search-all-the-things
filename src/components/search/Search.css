@@ -6,7 +6,6 @@
   
   .search-results {
     display: flex;
-    // justify-content: center;
 
     ul {
       width: 100%;
