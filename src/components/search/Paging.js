@@ -12,6 +12,7 @@ export default class Paging extends Component {
     perPage: PropTypes.number
   };
 
+
   handlePage(increment) {
     const { page, onPage, searchTerm } = this.props;
     onPage({ page: page + increment, searchTerm: searchTerm });
@@ -22,7 +23,8 @@ export default class Paging extends Component {
   render() {
     const { totalItems, page, perPage, searchTerm } = this.props;
 
-    if(!totalItems) return <div>No results found!</div>;
+    // if(!searchTerm) return null;
+    // if(!totalItems) return <div>No results found!</div>;
 
     const totalPages = Math.ceil(totalItems / perPage);
 
