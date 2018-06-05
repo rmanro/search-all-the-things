@@ -23,8 +23,7 @@ export default class Search extends Component {
     totalItems: null,
     page: 1,
     perPage: 10,
-    startIndex: 0,
-    paging: false
+    startIndex: 0
   };
 
   componentDidMount() {
@@ -92,7 +91,7 @@ export default class Search extends Component {
           page={page}
           perPage={perPage}
           onPage={this.handlePage}/>}
-        {(!totalItems) && <div>No Results Found!</div>}
+        {(!totalItems && searchTerm && !books) && <div>No Results Found!</div>}
         <section className="search-results">
           {(!error && books && searchTerm && totalItems) && <Books books={books}/>}
         </section>

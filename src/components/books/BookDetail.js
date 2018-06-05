@@ -27,7 +27,7 @@ export default class BookDetail extends Component {
 
   render() {
     const { book } = this.state;
-    if(book === null) return null;
+    if(book === null) return (<div>Bad Book ID!</div>);
     const description = { __html: book.description };
 
     return (

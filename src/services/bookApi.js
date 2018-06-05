@@ -41,6 +41,7 @@ export function search(term, startIndex) {
 export function getBook(id) {
   return get(`https://www.googleapis.com/books/v1/volumes/${id}`)
     .then((result) => {
+      // if(result.error) throw 'Error - Please Try Again';
       let newBook = {};
       if(!result.volumeInfo.authors) {
         newBook.author = 'none';
