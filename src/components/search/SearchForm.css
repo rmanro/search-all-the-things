@@ -1,6 +1,7 @@
 :local(.search) {
   padding: 10px;
-  margin-left: 20%;
+  padding-left: 0px;
+  margin-left: 10%;
 
   input {
     font-size: 12pt;

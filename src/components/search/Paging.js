@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './Paging.css';
+
 export default class Paging extends Component {
 
   static propTypes = {
@@ -25,9 +27,9 @@ export default class Paging extends Component {
     const totalPages = Math.ceil(totalItems / perPage);
 
     return (
-      <section>
+      <section className={styles.paging}>
         <div>
-          <span>Page {page} of {totalPages}</span>
+          <span>Page {page} of {totalPages}<br /></span>
           <button onClick={() => this.handlePage(-1)} disabled={page === 1}>&lt; Prev</button>
           <button onClick={() => this.handlePage(1)} disabled={page === totalPages}>Next &gt;</button>
           <span>{totalItems} Total Books</span>
