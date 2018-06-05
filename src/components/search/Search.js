@@ -92,8 +92,9 @@ export default class Search extends Component {
           page={page}
           perPage={perPage}
           onPage={this.handlePage}/>}
+        {(!totalItems) && <div>No Results Found!</div>}
         <section className="search-results">
-          {(!error && books && searchTerm) && <Books books={books}/>}
+          {(!error && books && searchTerm && totalItems) && <Books books={books}/>}
         </section>
       </div>
     );
