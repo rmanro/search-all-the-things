@@ -39,16 +39,14 @@ export default class SearchForm extends Component {
 
     return (
       <form className={styles.search} onSubmit={this.handleSubmit}>
-        <fieldset>
-          <input value={current}
-            onChange={this.handleChange}
-            name="search"
-            placeholder="title or author"
-            required/>
-          <label>
-            &nbsp;<button>Search</button>
-          </label>
-        </fieldset>
+        <input value={current}
+          onChange={this.handleChange}
+          name="search"
+          placeholder="title or author"
+          required/>
+        <label>
+            &nbsp;<button></button>
+        </label>
       </form>
     );
   }

@@ -5,6 +5,7 @@ import Paging from './Paging';
 import { search } from '../../services/bookApi';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
+import style from './Search.css';
 
 const getSearch = location => location ? location.search : '';
 
@@ -82,7 +83,7 @@ export default class Search extends Component {
     const { books, error, searchTerm, totalItems, page, perPage } = this.state;
 
     return (
-      <div>
+      <div className={style['search-page']}>
         <SearchForm searchTerm={searchTerm} onSearch={this.handleSearch}/>
         {error && <div>Error! Try Searching Again</div>}
         {(!error && books) && <Paging
