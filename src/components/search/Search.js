@@ -86,12 +86,12 @@ export default class Search extends Component {
       <div className={style['search-page']}>
         <SearchForm searchTerm={searchTerm} onSearch={this.handleSearch}/>
         {error && <div>Error! Try Searching Again</div>}
-        {(!error && books) && <Paging
+        {(!error && books) && <section><Paging
           searchTerm={searchTerm}
           totalItems={totalItems}
           page={page}
           perPage={perPage}
-          onPage={this.handlePage}/>}
+          onPage={this.handlePage}/></section>}
         <section className="search-results">
           {(!error && books) && <Books books={books}/>}
         </section>

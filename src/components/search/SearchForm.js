@@ -45,7 +45,7 @@ export default class SearchForm extends Component {
           placeholder="title or author"
           required/>
         <label>
-            &nbsp;<button></button>
+            &nbsp;<button>search</button>
         </label>
       </form>
     );
