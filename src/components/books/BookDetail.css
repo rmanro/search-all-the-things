@@ -1,14 +1,26 @@
 :local(.book-detail) {
 
+  display: flex;
+  justify-content: center;
+
   .container {
-    width: 500px;
+    width: 100%;
     margin: auto;
     padding: 15px;
     background: #aaa;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    h3 {
+      font-weight: lighter;
+      margin-top: 0;
+    }
 
     img {
       width: 175px;
-      float: left;
+      // float: left;
       margin-right: 10px;
     }
 
