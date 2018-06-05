@@ -25,8 +25,8 @@ export function search(term, startIndex) {
         if(!book.volumeInfo.authors) {
           newBook.author = 'none';
         } else if(book.volumeInfo.authors > 1) newBook.author = book.volumeInfo.authors[0]; else newBook.author = book.volumeInfo.authors[0]; 
-        if(book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail) {
-          newBook.imageUrl = book.volumeInfo.imageLinks.smallThumbnail;
+        if(book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail) {
+          newBook.imageUrl = book.volumeInfo.imageLinks.thumbnail;
         } else newBook.imageUrl = 'http://booklists.yalsa.net/content/images/placeholder.jpg';
         newBook.title = book.volumeInfo.title;
         newBook.gbID = book.id;
@@ -45,8 +45,8 @@ export function getBook(id) {
       if(!result.volumeInfo.authors) {
         newBook.author = 'none';
       } else if(result.volumeInfo.authors.length > 1) newBook.author = result.volumeInfo.authors[0]; else newBook.author = result.volumeInfo.authors[0]; 
-      if(result.volumeInfo.imageLinks && result.volumeInfo.imageLinks.smallThumbnail) {
-        newBook.imageUrl = result.volumeInfo.imageLinks.smallThumbnail;
+      if(result.volumeInfo.imageLinks && result.volumeInfo.imageLinks.thumbnail) {
+        newBook.imageUrl = result.volumeInfo.imageLinks.thumbnail;
       } else newBook.imageUrl = 'http://booklists.yalsa.net/content/images/placeholder.jpg';
       newBook.title = result.volumeInfo.title;
       if(result.volumeInfo.description) newBook.description = result.volumeInfo.description;
