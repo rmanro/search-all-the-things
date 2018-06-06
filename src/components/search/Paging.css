@@ -1,0 +1,11 @@
+:local(.paging) {
+  div {
+    margin-left: 10%;
+
+    button {
+      border: 1pt solid black;
+      margin: 5px;
+      margin-left: 0px;
+    }
+  }
+}
